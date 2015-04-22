@@ -51,19 +51,19 @@ def show_form(request):
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             paths= handle_uploads(request, ['docfile'])
-            print paths['docfile']
             inpath = os.path.join(settings.MEDIA_ROOT,paths['docfile'])
-            print inpath
             outpath = os.path.join(settings.MEDIA_ROOT, WORK_PATH)
             if not os.path.exists(outpath):
                 os.makedirs(outpath)
             outpath = os.path.join(outpath, 'generated.pdf')
             training_monitor.create_training_stats(inpath, 0, outpath)
-            
+            os.remove(inpath)
             with open(outpath, 'r') as pdf:
                 response = HttpResponse(pdf.read(), content_type='application/pdf')
                 response['Content-Disposition'] = 'inline;filename=test.pdf'
+                os.remove(outpath)
                 return response
+
             #TODO: remove generated and uploaded files
 
     #Display empty
