@@ -64,11 +64,11 @@ def show_form(request):
                 os.remove(outpath)
                 return response
 
-            #TODO: remove generated and uploaded files
+
 
     #Display empty
     else:
-        form = DocumentForm() # A empty, unbound form
+        form = DocumentForm() # An empty, unbound form
 
     # Load documents for the list page
     documents = Document.objects.all()
