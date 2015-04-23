@@ -18,3 +18,5 @@ Make sure to install all dependencies:
 `pip install -r requirements.txt`
 
 To run the project, type `python manage.py runserver`.
+
+You will now be able to access the webapp in your Browser under `http://127.0.0.1:8000` (localhost).
