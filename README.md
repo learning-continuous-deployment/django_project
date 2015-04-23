@@ -12,4 +12,4 @@ For the latest development version use: git clone https://github.com/django/djan
 
 Make sure, that you have cloned [this python package](https://github.com/jgru/training_monitoring). In the toplevel dir type `python setup.py install`
 
-
+.
