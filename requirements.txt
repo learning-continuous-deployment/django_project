@@ -4,4 +4,3 @@ xlrd
 numpy
 matplotlib
 pylatex
-click
