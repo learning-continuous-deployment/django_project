@@ -51,7 +51,8 @@ def show_form(request):
         form = DocumentForm(request.POST, request.FILES)
         if form.is_valid():
             paths= handle_uploads(request, ['docfile'])
-            inpath = os.path.join(settings.MEDIA_ROOT,paths['docfile'])
+                
+            inpath = os.path.join(settings.MEDIA_ROOT, paths['docfile'])
             outpath = os.path.join(settings.MEDIA_ROOT, WORK_PATH)
             if not os.path.exists(outpath):
                 os.makedirs(outpath)
