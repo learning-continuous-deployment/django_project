@@ -59,7 +59,7 @@ def show_form(request):
             outpath = os.path.join(outpath, 'generated.pdf')
             training_monitor.create_training_stats(inpath, 0, outpath)
             os.remove(inpath)
-            with open(outpath, 'r') as pdf:
+            with open(outpath, 'rb') as pdf: #errors='replace')
                 response = HttpResponse(pdf.read(), content_type='application/pdf')
                 response['Content-Disposition'] = 'inline;filename=test.pdf'
                 os.remove(outpath)
