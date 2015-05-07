@@ -18,12 +18,12 @@ RUN apt-get install -y python3 python3-dev python3-pip
 RUN apt-get install -y libfreetype6-dev
 
 # Application-Dependencies
-RUN pip install django
-RUN pip install xlrd
-RUN pip install numpy
-RUN pip install matplotlib
-RUN pip install pylatex
-RUN pip install git+https://github.com/jgru/training_monitoring.git
+RUN pip3 install django
+RUN pip3 install xlrd
+RUN pip3 install numpy
+RUN pip3 install matplotlib
+RUN pip3 install pylatex
+RUN pip3 install git+https://github.com/jgru/training_monitoring.git
 
 # Adding requiremetns
 ADD /app /my_application
