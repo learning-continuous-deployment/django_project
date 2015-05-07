@@ -38,4 +38,4 @@ WORKDIR /my_application
 # when creating a new container
 # i.e. using CherryPy to serve the application
 # to change the port use: python3 manage.py runserver 0.0.0.0:1234
-CMD python manage.py runserver
+CMD python3 manage.py runserver
