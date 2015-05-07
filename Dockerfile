@@ -11,17 +11,11 @@ t/sources.list
 # Update the sources list
 RUN apt-get update
 
-# Install basic applications
-RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential pkg-config
-
 # Install Python and Basic Python Tools
-RUN apt-get install -y python python-dev python-distribute python-pip
-#RUN apt-get install -y python3 python3-dev python3-pip
-
+RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential pkg-config
+RUN apt-get install -y texlive-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended texlive-fonts-extra
+RUN apt-get install -y python3 python3-dev python3-pip
 RUN apt-get install -y libfreetype6-dev
-
-#RUN apt-get install python-setuptools
-#RUN easy_install pip
 
 # Adding requiremetns
 ADD /app /my_application
