@@ -17,14 +17,16 @@ RUN apt-get install -y texlive-base texlive-latex-recommended texlive-latex-extr
 RUN apt-get install -y python3 python3-dev python3-pip
 RUN apt-get install -y libfreetype6-dev
 
+# Application-Dependencies
+RUN pip install django
+RUN pip install xlrd
+RUN pip install numpy
+RUN pip install matplotlib
+RUN pip install pylatex
+RUN pip install git+https://github.com/jgru/training_monitoring.git
+
 # Adding requiremetns
 ADD /app /my_application
-ADD /requirements.txt /my_application/requirements.txt
-
-# Get pip to download and install requirements:
-RUN pip install -r /my_application/requirements.txt
-
-#RUN /app /my_application
 
 # Expose ports
 EXPOSE 8000
