@@ -1,3 +1,45 @@
-FROM django:python2-onbuild
+# Set the base image to Ubuntu
+FROM ubuntu
 
-RUN pip install --upgrade pip
+# File Author / Maintainer
+MAINTAINER Maintaner Name
+
+# Add the application resources URL
+RUN echo "deb http://archive.ubuntu.com/ubuntu/ $(lsb_release -sc) main universe" >> /etc/ap\
+t/sources.list
+
+# Update the sources list
+RUN apt-get update
+
+# Install basic applications
+RUN apt-get install -y tar git curl nano wget dialog net-tools build-essential pkg-config
+
+# Install Python and Basic Python Tools
+RUN apt-get install -y python python-dev python-distribute python-pip
+#RUN apt-get install -y python3 python3-dev python3-pip
+
+RUN apt-get install -y libfreetype6-dev
+
+#RUN apt-get install python-setuptools
+#RUN easy_install pip
+
+# Adding requiremetns
+ADD /app /my_application
+ADD /requirements.txt /my_application/requirements.txt
+
+# Get pip to download and install requirements:
+RUN pip install -r /my_application/requirements.txt
+
+#RUN /app /my_application
+
+# Expose ports
+EXPOSE 8000
+
+# Set the default directory where CMD will execute
+WORKDIR /my_application
+
+# Set the default command to execute
+# when creating a new container
+# i.e. using CherryPy to serve the application
+# to change the port use: python3 manage.py runserver 0.0.0.0:1234
+CMD python manage.py runserver

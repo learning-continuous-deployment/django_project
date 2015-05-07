@@ -1,2 +1,6 @@
 django
 git+https://github.com/jgru/training_monitoring.git
+xlrd
+numpy
+matplotlib
+pylatex
