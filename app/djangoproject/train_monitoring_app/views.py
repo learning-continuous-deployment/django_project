@@ -57,7 +57,7 @@ def show_form(request):
             if not os.path.exists(outpath):
                 os.makedirs(outpath)
             outpath = os.path.join(outpath, 'generated.pdf')
-            training_monitor.create_training_stats(inpath, 0, outpath)
+            training_monitor.create_training_stats(inpath, -1, outpath)
             os.remove(inpath)
             with open(outpath, 'rb') as pdf: #errors='replace')
                 response = HttpResponse(pdf.read(), content_type='application/pdf')
